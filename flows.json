@@ -1,1 +1,37 @@
-[]
+[
+    {
+        "id": "a2505ee89e559663",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e67797179b74c6bd",
+        "type": "inject",
+        "z": "a2505ee89e559663",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 420,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    }
+]
