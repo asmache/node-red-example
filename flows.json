@@ -1,13 +1,5 @@
 [
     {
-        "id": "a2505ee89e559663",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
         "id": "e7e2e85c7ecb1f4f",
         "type": "tab",
         "label": "Flow 2",
@@ -26,8 +18,8 @@
     {
         "id": "379114177a76effc",
         "type": "tab",
-        "label": "flow with HTTP request",
-        "disabled": false,
+        "label": "b1 HTTP request v1",
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -58,8 +50,40 @@
         "id": "d4d736de852ac54e",
         "type": "tab",
         "label": "Flow 7",
-        "disabled": false,
+        "disabled": true,
         "info": "",
+        "env": []
+    },
+    {
+        "id": "7154dcb4283cb0ca",
+        "type": "tab",
+        "label": "b1 HTTP request v2",
+        "disabled": false,
+        "info": "[]()",
+        "env": []
+    },
+    {
+        "id": "3a6e9578ebda86b9",
+        "type": "tab",
+        "label": "B1 HTTP request v3",
+        "disabled": true,
+        "info": "[]()",
+        "env": []
+    },
+    {
+        "id": "68140d5bd2308e46",
+        "type": "tab",
+        "label": "Flow 5",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2441dacc324a3050",
+        "type": "tab",
+        "label": "B1 HTTP request v4",
+        "disabled": false,
+        "info": "[]()",
         "env": []
     },
     {
@@ -89,6 +113,88 @@
                 "wires": [
                     {
                         "id": "4e9806c77aecba72",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "ec0c400be41e570d",
+        "type": "subflow",
+        "name": "Add Item",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "a1e3b9f9fdd751cc"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 2260,
+                "y": 420,
+                "wires": [
+                    {
+                        "id": "262d451151801ef9",
+                        "port": 0
+                    },
+                    {
+                        "id": "8a3bf8e5090e7edb",
+                        "port": 0
+                    },
+                    {
+                        "id": "1887a34488d6f3b1",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "1f74893e02e53abc",
+        "type": "subflow",
+        "name": "Add Item (2)",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": [
+                    {
+                        "id": "9ff0f67bf83ba1c3"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 2260,
+                "y": 420,
+                "wires": [
+                    {
+                        "id": "0e02fa77a108bcce",
+                        "port": 0
+                    },
+                    {
+                        "id": "8b043d03ec44bfda",
+                        "port": 0
+                    },
+                    {
+                        "id": "06085fddb7774a4f",
                         "port": 0
                     }
                 ]
@@ -417,6 +523,64 @@
         "hidden": false
     },
     {
+        "id": "a0189d2ef4eae5d8",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "navigationStyle": "default"
+    },
+    {
+        "id": "9410c6a71607a797",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "b315ed046e0c2243",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "a0189d2ef4eae5d8",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "9410c6a71607a797",
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "ed7a05e849dcf4e5",
+        "type": "ui-group",
+        "name": "My Group",
+        "page": "b315ed046e0c2243",
+        "width": 6,
+        "height": 1,
+        "order": -1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
         "id": "b2fd6006d04458b5",
         "type": "getSap",
         "z": "75fe92a1badcf326",
@@ -602,30 +766,593 @@
         ]
     },
     {
-        "id": "e67797179b74c6bd",
-        "type": "inject",
-        "z": "a2505ee89e559663",
+        "id": "4b962c2f3b97e359",
+        "type": "http request",
+        "z": "ec0c400be41e570d",
         "name": "",
-        "props": [
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://172.16.0.217:50000/b1s/v1/Login",
+        "tls": "3848a164baa8e497",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
             {
-                "p": "payload"
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
+        "x": 675.7142944335938,
+        "y": 258.5714416503906,
+        "wires": [
+            [
+                "789d83b27788c4ab",
+                "83bb798c17dd33b1"
+            ]
+        ]
+    },
+    {
+        "id": "2b0352a804bc5740",
+        "type": "function",
+        "z": "ec0c400be41e570d",
+        "name": "Persisit token",
+        "func": "node.status({fill:\"green\",shape:\"ring\",text:\"conne success\"});\nmsg.response =  JSON.parse(msg.payload);\nflow.sessionID = msg.response.SessionId;\nmsg.response.SessionTimeout =3000;\nmsg.sessionID = msg.response.SessionId;\ndelete msg.headers[\"keep-alive\"];\n msg.headers[\"Prefer\"] =\"odata.maxpagesize=300\";\nmsg.headers[\"Cookie\"] = \"B1SESSION=\" + msg.sessionID+ \"; ROUTEID=.node1\";\nvar nbsucc = flow.get(\"nbconnectionok\");\nif (nbsucc === undefined){\n    nbsucc = 1;\n}else{\nnbsucc ++;\n}\nflow.set(\"nbconnectionok\",nbsucc);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1055.7142944335938,
+        "y": 178.57144165039062,
+        "wires": [
+            [
+                "2aa37a35cbba33cc",
+                "e05e512fe4e32315"
+            ]
+        ]
+    },
+    {
+        "id": "789d83b27788c4ab",
+        "type": "debug",
+        "z": "ec0c400be41e570d",
+        "name": "debug 80",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 835.7142944335938,
+        "y": 358.5714416503906,
+        "wires": []
+    },
+    {
+        "id": "2aa37a35cbba33cc",
+        "type": "debug",
+        "z": "ec0c400be41e570d",
+        "name": "debug 81",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "83bb798c17dd33b1",
+        "type": "switch",
+        "z": "ec0c400be41e570d",
+        "name": "",
+        "property": "msg.statusCode",
+        "propertyType": "jsonata",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "str"
             },
             {
-                "p": "topic",
+                "t": "neq",
+                "v": "200",
                 "vt": "str"
             }
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 420,
-        "y": 140,
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 120,
+        "wires": [
+            [
+                "2b0352a804bc5740"
+            ],
+            [
+                "262d451151801ef9"
+            ]
+        ]
+    },
+    {
+        "id": "262d451151801ef9",
+        "type": "function",
+        "z": "ec0c400be41e570d",
+        "name": "prep error msg",
+        "func": "node.status({fill:\"red\",shape:\"ring\",text:\"connection failed\"});\n\nvar nbfailed = flow.get(\"nbconnectionfailed\");\nif (nbfailed === undefined){\n    nbfailed = 1;\n}else{\nnbfailed ++;\n}\n\nflow.set(\"nbconnectionfailed\",nbfailed);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1035.7142944335938,
+        "y": 238.57144165039062,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "0f3836f90e89985f",
+        "type": "debug",
+        "z": "ec0c400be41e570d",
+        "d": true,
+        "name": "debug 82",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2060,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e05e512fe4e32315",
+        "type": "function",
+        "z": "ec0c400be41e570d",
+        "name": "function 8",
+        "func": "\nvar aStatus = msg.recap;\nvar now = new Date();\nvar oStatus = \n    {\n    \"Company\": msg.company,\n        \"status\":80,\n        \"action\":\"login\",\n        \"timestamp\": now.getTime()\n    };\n    aStatus.push(oStatus);\n    msg.recap = aStatus;\n    msg.payload = msg.item;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 220,
+        "wires": [
+            [
+                "8c4477905252d2ef"
+            ]
+        ]
+    },
+    {
+        "id": "8c4477905252d2ef",
+        "type": "http request",
+        "z": "ec0c400be41e570d",
+        "name": "Add Item",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://172.16.0.217:50000/b1s/v1/Items",
+        "tls": "3848a164baa8e497",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "msg",
+                "keyValue": "Headers",
+                "valueType": "other",
+                "valueValue": ""
+            }
+        ],
+        "x": 1455.7142944335938,
+        "y": 138.57144165039062,
+        "wires": [
+            [
+                "0f3836f90e89985f",
+                "0d838e29c15deac6"
+            ]
+        ]
+    },
+    {
+        "id": "0d838e29c15deac6",
+        "type": "switch",
+        "z": "ec0c400be41e570d",
+        "name": "Add Status",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "201",
+                "vt": "num"
+            },
+            {
+                "t": "neq",
+                "v": "201",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1655.7142944335938,
+        "y": 218.57144165039062,
+        "wires": [
+            [
+                "1887a34488d6f3b1"
+            ],
+            [
+                "8a3bf8e5090e7edb"
+            ]
+        ]
+    },
+    {
+        "id": "1887a34488d6f3b1",
+        "type": "function",
+        "z": "ec0c400be41e570d",
+        "name": "log Add success",
+        "func": "node.status({fill:\"green\",shape:\"ring\",text:\"Item Added\"});\nvar aStatus = msg.recap;\nvar now = new Date();\nvar oStatus = \n    {\n    \"Company\": msg.company,\n        \"status\":80,\n        \"action\":\"Add Item\",\n        \"timestamp\": now.getTime()\n    };\n    aStatus.push(oStatus);\n    msg.recap = aStatus;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1875.7142944335938,
+        "y": 178.57144165039062,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a3bf8e5090e7edb",
+        "type": "function",
+        "z": "ec0c400be41e570d",
+        "name": "log Add failed",
+        "func": "node.status({fill:\"red\",shape:\"ring\",text:\"Item not added\"});\nvar aStatus = msg.recap;\nvar now = new Date();\nvar oStatus = \n    {\n    \"Company\": msg.company,\n        \"status\":10,\n        \"action\":\"Add Item\",\n        \"timestamp\": now.getTime()\n    };\n    aStatus.push(oStatus);\n    msg.recap = aStatus;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1875.7142944335938,
+        "y": 258.5714416503906,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a1e3b9f9fdd751cc",
+        "type": "function",
+        "z": "ec0c400be41e570d",
+        "name": "function 11",
+        "func": "msg.company = msg.payload.CompanyDB;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 180,
+        "wires": [
+            [
+                "4b962c2f3b97e359"
+            ]
+        ]
+    },
+    {
+        "id": "cfddd83d8c1ca123",
+        "type": "http request",
+        "z": "1f74893e02e53abc",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://172.16.0.217:50000/b1s/v1/Login",
+        "tls": "3848a164baa8e497",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
+        "x": 675.7142944335938,
+        "y": 258.5714416503906,
+        "wires": [
+            [
+                "7344af8e7ef38715",
+                "d546f7040994f831"
+            ]
+        ]
+    },
+    {
+        "id": "f578f4b4e66404b5",
+        "type": "function",
+        "z": "1f74893e02e53abc",
+        "name": "Persisit token",
+        "func": "node.status({fill:\"green\",shape:\"ring\",text:\"conne success\"});\nmsg.response =  JSON.parse(msg.payload);\nflow.sessionID = msg.response.SessionId;\nmsg.response.SessionTimeout =3000;\nmsg.sessionID = msg.response.SessionId;\ndelete msg.headers[\"keep-alive\"];\n msg.headers[\"Prefer\"] =\"odata.maxpagesize=300\";\nmsg.headers[\"Cookie\"] = \"B1SESSION=\" + msg.sessionID+ \"; ROUTEID=.node1\";\nvar nbsucc = flow.get(\"nbconnectionok\");\nif (nbsucc === undefined){\n    nbsucc = 1;\n}else{\nnbsucc ++;\n}\nflow.set(\"nbconnectionok\",nbsucc);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1055.7142944335938,
+        "y": 178.57144165039062,
+        "wires": [
+            [
+                "8e25e657a56278ba",
+                "5e70b8a58e6eb929"
+            ]
+        ]
+    },
+    {
+        "id": "7344af8e7ef38715",
+        "type": "debug",
+        "z": "1f74893e02e53abc",
+        "name": "debug 80",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 835.7142944335938,
+        "y": 358.5714416503906,
+        "wires": []
+    },
+    {
+        "id": "8e25e657a56278ba",
+        "type": "debug",
+        "z": "1f74893e02e53abc",
+        "name": "debug 81",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1260,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d546f7040994f831",
+        "type": "switch",
+        "z": "1f74893e02e53abc",
+        "name": "",
+        "property": "msg.statusCode",
+        "propertyType": "jsonata",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "200",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 120,
+        "wires": [
+            [
+                "f578f4b4e66404b5"
+            ],
+            [
+                "0e02fa77a108bcce"
+            ]
+        ]
+    },
+    {
+        "id": "0e02fa77a108bcce",
+        "type": "function",
+        "z": "1f74893e02e53abc",
+        "name": "prep error msg",
+        "func": "node.status({fill:\"red\",shape:\"ring\",text:\"connection failed\"});\n\nvar nbfailed = flow.get(\"nbconnectionfailed\");\nif (nbfailed === undefined){\n    nbfailed = 1;\n}else{\nnbfailed ++;\n}\n\nflow.set(\"nbconnectionfailed\",nbfailed);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1035.7142944335938,
+        "y": 238.57144165039062,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37d8f7f7445c8b60",
+        "type": "debug",
+        "z": "1f74893e02e53abc",
+        "d": true,
+        "name": "debug 82",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2060,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5e70b8a58e6eb929",
+        "type": "function",
+        "z": "1f74893e02e53abc",
+        "name": "function 8",
+        "func": "\nvar aStatus = msg.recap;\nvar now = new Date();\nvar oStatus = \n    {\n    \"Company\": msg.company,\n        \"status\":80,\n        \"action\":\"login\",\n        \"timestamp\": now.toString()\n    };\n    aStatus.push(oStatus);\n    msg.recap = aStatus;\n    msg.payload = msg.item;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 220,
+        "wires": [
+            [
+                "6d35ab1af660c569"
+            ]
+        ]
+    },
+    {
+        "id": "6d35ab1af660c569",
+        "type": "http request",
+        "z": "1f74893e02e53abc",
+        "name": "Add Item",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://172.16.0.217:50000/b1s/v1/Items",
+        "tls": "3848a164baa8e497",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "msg",
+                "keyValue": "Headers",
+                "valueType": "other",
+                "valueValue": ""
+            }
+        ],
+        "x": 1455.7142944335938,
+        "y": 138.57144165039062,
+        "wires": [
+            [
+                "37d8f7f7445c8b60",
+                "d432c4c5eb2939b2"
+            ]
+        ]
+    },
+    {
+        "id": "d432c4c5eb2939b2",
+        "type": "switch",
+        "z": "1f74893e02e53abc",
+        "name": "Add Status",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "201",
+                "vt": "num"
+            },
+            {
+                "t": "neq",
+                "v": "201",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1655.7142944335938,
+        "y": 218.57144165039062,
+        "wires": [
+            [
+                "06085fddb7774a4f"
+            ],
+            [
+                "8b043d03ec44bfda"
+            ]
+        ]
+    },
+    {
+        "id": "06085fddb7774a4f",
+        "type": "function",
+        "z": "1f74893e02e53abc",
+        "name": "log Add success",
+        "func": "node.status({fill:\"green\",shape:\"ring\",text:\"Item Added\"});\nvar aStatus = msg.recap;\nmsg.nbcreated ++;\nvar now = new Date();\nvar oStatus = \n    {\n    \"Company\": msg.company,\n        \"status\":80,\n        \"action\":\"Add Item\",\n        \"timestamp\": now.toString()\n    };\n    aStatus.push(oStatus);\n    msg.recap = aStatus;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1875.7142944335938,
+        "y": 178.57144165039062,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8b043d03ec44bfda",
+        "type": "function",
+        "z": "1f74893e02e53abc",
+        "name": "log Add failed",
+        "func": "node.status({fill:\"red\",shape:\"ring\",text:\"Item not added\"});\nvar aStatus = msg.recap;\nvar now = new Date();\nvar oStatus = \n    {\n    \"Company\": msg.company,\n        \"status\":10,\n        \"action\":\"Add Item\",\n        \"timestamp\": now.toString()\n    };\n    aStatus.push(oStatus);\n    msg.recap = aStatus;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1875.7142944335938,
+        "y": 258.5714416503906,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9ff0f67bf83ba1c3",
+        "type": "function",
+        "z": "1f74893e02e53abc",
+        "name": "function 11",
+        "func": "msg.company = msg.payload.CompanyDB;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 180,
+        "wires": [
+            [
+                "cfddd83d8c1ca123"
+            ]
         ]
     },
     {
@@ -1250,8 +1977,8 @@
         "z": "379114177a76effc",
         "name": "",
         "scope": [
-            "1ad4b53e3b8c506e",
-            "9ac023b161e88bfe"
+            "9ac023b161e88bfe",
+            "1ad4b53e3b8c506e"
         ],
         "x": 220,
         "y": 600,
@@ -1349,8 +2076,7 @@
         "y": 500,
         "wires": [
             [
-                "7da3db08985e4c7a",
-                "81245dbccc95efcf"
+                "7da3db08985e4c7a"
             ]
         ]
     },
@@ -1648,8 +2374,8 @@
         "name": "",
         "group": "8be0a783c25b7c66",
         "order": 2,
-        "width": 0,
-        "height": 0,
+        "width": "6",
+        "height": "6",
         "label": "Pie chart",
         "chartType": "pie",
         "legend": "true",
@@ -1704,22 +2430,6 @@
                 "c6ec3659279280aa"
             ]
         ]
-    },
-    {
-        "id": "81245dbccc95efcf",
-        "type": "ui_table",
-        "z": "379114177a76effc",
-        "group": "8be0a783c25b7c66",
-        "name": "New Status Table",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "columns": [],
-        "outputs": 0,
-        "cts": false,
-        "x": 1090,
-        "y": 420,
-        "wires": []
     },
     {
         "id": "3b5dc31.f13743c",
@@ -2363,10 +3073,12 @@
         "tooltip": "",
         "color": "",
         "bgcolor": "",
+        "className": "",
         "icon": "",
         "payload": "[{\"textValue\":\"Line #1\",\"numberValue\":123.12},{\"textValue\":\"Line #2\",\"numberValue\":100},{\"textValue\":\"Line #3\",\"numberValue\":50}]",
         "payloadType": "json",
         "topic": "rowFormatter",
+        "topicType": "str",
         "x": 382,
         "y": 340,
         "wires": [
@@ -2501,5 +3213,1931 @@
         "x": 580,
         "y": 540,
         "wires": []
+    },
+    {
+        "id": "d716c466d48e6bc0",
+        "type": "inject",
+        "z": "7154dcb4283cb0ca",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "bd0a748b32509189"
+            ]
+        ]
+    },
+    {
+        "id": "bd0a748b32509189",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "Prepare auth payload",
+        "func": "msg.payload = { \n    \"CompanyDB\": \"DBC_ELECTRONICS_PREPROD\",\n    \"Password\": \"inforrr\",\n    \"UserName\": \"manager\"\n \n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n//flow.set(\"nbconnectionfailed\", 0);\n//flow.set(\"nbconnectionok\", 0);",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 60,
+        "wires": [
+            [
+                "5351919db8a411bf"
+            ]
+        ]
+    },
+    {
+        "id": "5351919db8a411bf",
+        "type": "http request",
+        "z": "7154dcb4283cb0ca",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://172.16.0.217:50000/b1s/v1/Login",
+        "tls": "3848a164baa8e497",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
+        "x": 530,
+        "y": 160,
+        "wires": [
+            [
+                "d86f844fa6c7f30f",
+                "8826522e4c0a11af"
+            ]
+        ]
+    },
+    {
+        "id": "16a3a57ac0e266bc",
+        "type": "status",
+        "z": "7154dcb4283cb0ca",
+        "name": "",
+        "scope": [
+            "4b95a1bb1652817e",
+            "bae824b69eebfa4f"
+        ],
+        "x": 220,
+        "y": 600,
+        "wires": [
+            [
+                "3f6adfd54da631b0",
+                "1667f6581f8fab6e",
+                "f4d8adeb37d976a3",
+                "552c7a2e1cdb8f5e"
+            ]
+        ]
+    },
+    {
+        "id": "a0786aeaf17adb94",
+        "type": "debug",
+        "z": "7154dcb4283cb0ca",
+        "name": "debug 76",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "4b95a1bb1652817e",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "Persisit token",
+        "func": "node.status({fill:\"green\",shape:\"ring\",text:\"conne success\"});\nmsg.response =  JSON.parse(msg.payload);\nflow.sessionID = msg.response.SessionId;\nmsg.response.SessionTimeout =3000;\nmsg.sessionID = msg.response.SessionId;\ndelete msg.headers[\"keep-alive\"];\n msg.headers[\"Prefer\"] =\"odata.maxpagesize=300\";\nmsg.headers[\"Cookie\"] = \"B1SESSION=\" + msg.sessionID+ \"; ROUTEID=.node1\";\nvar nbsucc = flow.get(\"nbconnectionok\");\nif (nbsucc === undefined){\n    nbsucc = 1;\n}else{\nnbsucc ++;\n}\nflow.set(\"nbconnectionok\",nbsucc);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 80,
+        "wires": [
+            [
+                "eed3defa8ff9f932",
+                "e3dcdee45ff53c0d"
+            ]
+        ]
+    },
+    {
+        "id": "d86f844fa6c7f30f",
+        "type": "debug",
+        "z": "7154dcb4283cb0ca",
+        "name": "debug 77",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "eed3defa8ff9f932",
+        "type": "debug",
+        "z": "7154dcb4283cb0ca",
+        "name": "debug 78",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1220,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4c6e2649cd360547",
+        "type": "template",
+        "z": "7154dcb4283cb0ca",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<table>\n    <tr><th>time</th><th>Fill</th><th>Shape</th><th>Text</th><th>Source</th><th>Node Type</th></tr>\n    {{#payload}}\n        <tr class=\"\">\n            <td>{{time}}</td>\n            <td>{{fill}}</td>\n            <td>{{shape}}</td>\n            <td>{{text}}</td>\n            <td>{{source}}</td>\n            <td>{{type}}</td>\n        </tr>\n    {{/payload}}\n</table>",
+        "output": "str",
+        "x": 740,
+        "y": 500,
+        "wires": [
+            [
+                "b65e8ea91b10da6a"
+            ]
+        ]
+    },
+    {
+        "id": "b65e8ea91b10da6a",
+        "type": "ui_template",
+        "z": "7154dcb4283cb0ca",
+        "group": "0bbfe8d835f43144",
+        "name": "",
+        "order": 0,
+        "width": "24",
+        "height": "10",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1080,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8826522e4c0a11af",
+        "type": "switch",
+        "z": "7154dcb4283cb0ca",
+        "name": "",
+        "property": "msg.statusCode",
+        "propertyType": "jsonata",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "200",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 710,
+        "y": 80,
+        "wires": [
+            [
+                "4b95a1bb1652817e"
+            ],
+            [
+                "bae824b69eebfa4f"
+            ]
+        ]
+    },
+    {
+        "id": "bae824b69eebfa4f",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "prep error msg",
+        "func": "node.status({fill:\"red\",shape:\"ring\",text:\"conne failed\"});\n\nvar nbfailed = flow.get(\"nbconnectionfailed\");\nif (nbfailed === undefined){\n    nbfailed = 1;\n}else{\nnbfailed ++;\n}\n\nflow.set(\"nbconnectionfailed\",nbfailed);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28e4e915f5596386",
+        "type": "debug",
+        "z": "7154dcb4283cb0ca",
+        "name": "debug 79",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1860,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3f6adfd54da631b0",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "Status in table",
+        "func": "const collectionsize = 100; // define the number of error to be collected. Once limit is reached, older error is deleted.\n\nlet status = flow.get(\"status_all\");\nif (status===undefined) {\n    status = [];\n}\ndebugger;\nlet now = new Date();\n\nif (status.length >= collectionsize) {\n    status.shift();\n}\n\nstatus.push({ \"timestamp\": now.getTime(), \"fill\": msg.status.fill, \"shape\": msg.status.shape, \"text\": msg.status.text, \"source\": msg.status.source.name, \"type\": msg.status.source.type, \"time\": now.toLocaleString() });\n\nflow.set(\"status_all\", status);\n\nmsg.payload = status;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 480,
+        "wires": [
+            [
+                "4c6e2649cd360547"
+            ]
+        ]
+    },
+    {
+        "id": "30909908994cb83d",
+        "type": "ui_chart",
+        "z": "7154dcb4283cb0ca",
+        "name": "",
+        "group": "8be0a783c25b7c66",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Bar chart",
+        "chartType": "bar",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "no data here",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "10",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#6f4a2a",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1080,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1667f6581f8fab6e",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "Status in chart",
+        "func": "//let status = flow.get(\"status_allc\");\n\n   var status = [];\n\ndebugger;\nlet now = new Date();\n //var nbfailed = flow.get(\"nbconnectionfailed\");;\nvar nbfailed = flow.get(\"nbconnectionfailed\");\n const dataSet = {\n     \"count\":  nbfailed, \n     \"status\": \"Failed\"\n    }\n status.push(dataSet);\n var nbsucc = flow.get(\"nbconnectionok\");\n  const dataSet2 = {\n     \"count\":  nbsucc, \n     \"status\": \"Success\"\n    }\n     status.push(dataSet2);\nflow.set(\"status_allc\", status);\n\n\n\nmsg.payload = status;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 600,
+        "wires": [
+            [
+                "a0786aeaf17adb94",
+                "a7fb5490718fa9e1"
+            ]
+        ]
+    },
+    {
+        "id": "c71941403a4aafc6",
+        "type": "change",
+        "z": "7154dcb4283cb0ca",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload.status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.count",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 580,
+        "wires": [
+            [
+                "30909908994cb83d"
+            ]
+        ]
+    },
+    {
+        "id": "a7fb5490718fa9e1",
+        "type": "split",
+        "z": "7154dcb4283cb0ca",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 670,
+        "y": 580,
+        "wires": [
+            [
+                "c71941403a4aafc6"
+            ]
+        ]
+    },
+    {
+        "id": "85e0366376e5baaf",
+        "type": "comment",
+        "z": "7154dcb4283cb0ca",
+        "name": "Bloc for logging",
+        "info": "",
+        "x": 140,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "f4d8adeb37d976a3",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "Success",
+        "func": "msg.payload = flow.get(\"nbconnectionok\");\nmsg.topic = \"Success\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 720,
+        "wires": [
+            [
+                "29ab5cb956a8e4f8"
+            ]
+        ]
+    },
+    {
+        "id": "29ab5cb956a8e4f8",
+        "type": "ui_chart",
+        "z": "7154dcb4283cb0ca",
+        "name": "",
+        "group": "8be0a783c25b7c66",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "Pie chart",
+        "chartType": "pie",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "552c7a2e1cdb8f5e",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "Failed",
+        "func": "msg.payload = flow.get(\"nbconnectionfailed\");\nmsg.topic = \"Failed\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 780,
+        "wires": [
+            [
+                "29ab5cb956a8e4f8"
+            ]
+        ]
+    },
+    {
+        "id": "e3dcdee45ff53c0d",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "function 7",
+        "func": "msg.payload = {\n            \"ItemName\": \"Apple iPhone 12 Pro 512GB - Grade A HJ\",\n            \"ItemCode\": \"MOB99994255\",\n            \"ForeignName\": null,\n            \"ItemsGroupCode\": 100,\n            \"CustomsGroupCode\": -1,\n            \"SalesVATGroup\": \"C10\",\n            \"BarCode\": \"I00000018\",\n            \"VatLiable\": \"tYES\",\n            \"PurchaseItem\": \"tYES\",\n            \"SalesItem\": \"tYES\",\n            \"InventoryItem\": \"tYES\",\n            \"IncomeAccount\": null,\n            \"ExemptIncomeAccount\": null,\n            \"ExpanseAccount\": null,\n            \"Mainsupplier\": null,\n            \"SupplierCatalogNo\": null,\n            \"DesiredInventory\": 0.0,\n            \"MinInventory\": 0.0,\n            \"Picture\": null,\n            \"User_Text\": null,\n            \"SerialNum\": null,\n            \"CommissionPercent\": 0.0,\n            \"CommissionSum\": 0.0,\n            \"CommissionGroup\": 0,\n            \"TreeType\": \"iNotATree\",\n            \"AssetItem\": \"tNO\",\n            \"DataExportCode\": null,\n            \"Manufacturer\": 1,\n            \"QuantityOnStock\": 0.0,\n            \"QuantityOrderedFromVendors\": 0.0,\n            \"QuantityOrderedByCustomers\": 0.0,\n            \"ManageSerialNumbers\": \"tYES\",\n            \"ManageBatchNumbers\": \"tNO\",\n            \"Valid\": \"tYES\",\n            \"ValidFrom\": null,\n            \"ValidTo\": null,\n            \"ValidRemarks\": null,\n            \"Frozen\": \"tNO\",\n            \"FrozenFrom\": null,\n            \"FrozenTo\": null,\n            \"FrozenRemarks\": null,\n            \"SalesUnit\": null,\n            \"SalesItemsPerUnit\": 1.0,\n            \"SalesPackagingUnit\": null,\n            \"SalesQtyPerPackUnit\": 1.0,\n            \"SalesUnitLength\": 0.0,\n            \"SalesLengthUnit\": null,\n            \"SalesUnitWidth\": 0.0,\n            \"SalesWidthUnit\": null,\n            \"SalesUnitHeight\": 0.0,\n            \"SalesHeightUnit\": null,\n            \"SalesUnitVolume\": 0.0,\n            \"SalesVolumeUnit\": 2,\n            \"SalesUnitWeight\": 0.0,\n            \"SalesWeightUnit\": null,\n            \"PurchaseUnit\": null,\n            \"PurchaseItemsPerUnit\": 1.0,\n            \"PurchasePackagingUnit\": null,\n            \"PurchaseQtyPerPackUnit\": 1.0,\n            \"PurchaseUnitLength\": 0.0,\n            \"PurchaseLengthUnit\": null,\n            \"PurchaseUnitWidth\": 0.0,\n            \"PurchaseWidthUnit\": null,\n            \"PurchaseUnitHeight\": 0.0,\n            \"PurchaseHeightUnit\": null,\n            \"PurchaseUnitVolume\": 0.0,\n            \"PurchaseVolumeUnit\": 2,\n            \"PurchaseUnitWeight\": 0.0,\n            \"PurchaseWeightUnit\": null,\n            \"PurchaseVATGroup\": \"D10\",\n            \"SalesFactor1\": 1.0,\n            \"SalesFactor2\": 1.0,\n            \"SalesFactor3\": 1.0,\n            \"SalesFactor4\": 1.0,\n            \"PurchaseFactor1\": 1.0,\n            \"PurchaseFactor2\": 1.0,\n            \"PurchaseFactor3\": 1.0,\n            \"PurchaseFactor4\": 1.0,\n            \"MovingAveragePrice\": 0.0,\n            \"ForeignRevenuesAccount\": null,\n            \"ECRevenuesAccount\": null,\n            \"ForeignExpensesAccount\": null,\n            \"ECExpensesAccount\": null,\n            \"AvgStdPrice\": 0.0,\n            \"DefaultWarehouse\": null,\n            \"ShipType\": null,\n            \"GLMethod\": \"glm_WH\",\n            \"TaxType\": \"tt_Yes\",\n            \"MaxInventory\": 0.0,\n            \"ManageStockByWarehouse\": \"tYES\",\n            \"PurchaseHeightUnit1\": null,\n            \"PurchaseUnitHeight1\": 0.0,\n            \"PurchaseLengthUnit1\": null,\n            \"PurchaseUnitLength1\": 0.0,\n            \"PurchaseWeightUnit1\": null,\n            \"PurchaseUnitWeight1\": 0.0,\n            \"PurchaseWidthUnit1\": null,\n            \"PurchaseUnitWidth1\": 0.0,\n            \"SalesHeightUnit1\": null,\n            \"SalesUnitHeight1\": 0.0,\n            \"SalesLengthUnit1\": null,\n            \"SalesUnitLength1\": 0.0,\n            \"SalesWeightUnit1\": null,\n            \"SalesUnitWeight1\": 0.0,\n            \"SalesWidthUnit1\": null,\n            \"SalesUnitWidth1\": 0.0,\n            \"ForceSelectionOfSerialNumber\": \"tYES\",\n            \"ManageSerialNumbersOnReleaseOnly\": \"tNO\",\n            \"WTLiable\": \"tYES\",\n            \"CostAccountingMethod\": \"bis_SNB\",\n            \"SWW\": null,\n            \"WarrantyTemplate\": null,\n            \"IndirectTax\": \"tNO\",\n            \"ArTaxCode\": null,\n            \"ApTaxCode\": null,\n            \"BaseUnitName\": null,\n            \"ItemCountryOrg\": null,\n            \"IssueMethod\": \"im_Manual\",\n            \"SRIAndBatchManageMethod\": \"bomm_OnEveryTransaction\",\n            \"IsPhantom\": \"tNO\",\n            \"InventoryUOM\": null,\n            \"PlanningSystem\": \"bop_None\",\n            \"ProcurementMethod\": \"bom_Buy\",\n            \"ComponentWarehouse\": \"bomcw_BOM\",\n            \"OrderIntervals\": null,\n            \"OrderMultiple\": 0.0,\n            \"LeadTime\": null,\n            \"MinOrderQuantity\": 0.0,\n            \"ItemType\": \"itItems\",\n            \"ItemClass\": \"itcMaterial\",\n            \"OutgoingServiceCode\": -1,\n            \"IncomingServiceCode\": -1,\n            \"ServiceGroup\": -1,\n            \"NCMCode\": -1,\n            \"MaterialType\": \"mt_FinishedGoods\",\n            \"MaterialGroup\": -1,\n            \"ProductSource\": \"0\",\n            \"Properties1\": \"tNO\",\n            \"Properties2\": \"tNO\",\n            \"Properties3\": \"tNO\",\n            \"Properties4\": \"tNO\",\n            \"Properties5\": \"tNO\",\n            \"Properties6\": \"tNO\",\n            \"Properties7\": \"tNO\",\n            \"Properties8\": \"tNO\",\n            \"Properties9\": \"tNO\",\n            \"Properties10\": \"tNO\",\n            \"Properties11\": \"tNO\",\n            \"Properties12\": \"tNO\",\n            \"Properties13\": \"tNO\",\n            \"Properties14\": \"tNO\",\n            \"Properties15\": \"tNO\",\n            \"Properties16\": \"tNO\",\n            \"Properties17\": \"tNO\",\n            \"Properties18\": \"tNO\",\n            \"Properties19\": \"tNO\",\n            \"Properties20\": \"tNO\",\n            \"Properties21\": \"tNO\",\n            \"Properties22\": \"tNO\",\n            \"Properties23\": \"tNO\",\n            \"Properties24\": \"tNO\",\n            \"Properties25\": \"tNO\",\n            \"Properties26\": \"tNO\",\n            \"Properties27\": \"tNO\",\n            \"Properties28\": \"tNO\",\n            \"Properties29\": \"tNO\",\n            \"Properties30\": \"tNO\",\n            \"Properties31\": \"tNO\",\n            \"Properties32\": \"tNO\",\n            \"Properties33\": \"tNO\",\n            \"Properties34\": \"tNO\",\n            \"Properties35\": \"tNO\",\n            \"Properties36\": \"tNO\",\n            \"Properties37\": \"tNO\",\n            \"Properties38\": \"tNO\",\n            \"Properties39\": \"tNO\",\n            \"Properties40\": \"tNO\",\n            \"Properties41\": \"tNO\",\n            \"Properties42\": \"tNO\",\n            \"Properties43\": \"tNO\",\n            \"Properties44\": \"tNO\",\n            \"Properties45\": \"tNO\",\n            \"Properties46\": \"tNO\",\n            \"Properties47\": \"tNO\",\n            \"Properties48\": \"tNO\",\n            \"Properties49\": \"tNO\",\n            \"Properties50\": \"tNO\",\n            \"Properties51\": \"tNO\",\n            \"Properties52\": \"tNO\",\n            \"Properties53\": \"tNO\",\n            \"Properties54\": \"tNO\",\n            \"Properties55\": \"tNO\",\n            \"Properties56\": \"tNO\",\n            \"Properties57\": \"tNO\",\n            \"Properties58\": \"tNO\",\n            \"Properties59\": \"tNO\",\n            \"Properties60\": \"tNO\",\n            \"Properties61\": \"tNO\",\n            \"Properties62\": \"tNO\",\n            \"Properties63\": \"tNO\",\n            \"Properties64\": \"tNO\",\n            \"AutoCreateSerialNumbersOnRelease\": \"tNO\",\n            \"DNFEntry\": -1,\n            \"GTSItemSpec\": null,\n            \"GTSItemTaxCategory\": null,\n            \"FuelID\": -1,\n            \"BeverageTableCode\": null,\n            \"BeverageGroupCode\": null,\n            \"BeverageCommercialBrandCode\": -1,\n            \"Series\": 3,\n            \"ToleranceDays\": null,\n            \"TypeOfAdvancedRules\": \"toarGeneral\",\n            \"IssuePrimarilyBy\": \"ipbSerialAndBatchNumbers\",\n            \"NoDiscounts\": \"tNO\",\n            \"AssetClass\": \"\",\n            \"AssetGroup\": \"\",\n            \"InventoryNumber\": \"\",\n            \"Technician\": null,\n            \"Employee\": null,\n            \"Location\": null,\n            \"AssetStatus\": \"New\",\n            \"CapitalizationDate\": null,\n            \"StatisticalAsset\": \"tNO\",\n            \"Cession\": \"tNO\",\n            \"DeactivateAfterUsefulLife\": \"tNO\",\n            \"ManageByQuantity\": \"tNO\",\n            \"UoMGroupEntry\": -1,\n            \"InventoryUoMEntry\": -1,\n            \"DefaultSalesUoMEntry\": null,\n            \"DefaultPurchasingUoMEntry\": null,\n            \"DepreciationGroup\": null,\n            \"AssetSerialNumber\": \"\",\n            \"InventoryWeight\": 0.0,\n            \"InventoryWeightUnit\": null,\n            \"InventoryWeight1\": 0.0,\n            \"InventoryWeightUnit1\": null,\n            \"DefaultCountingUnit\": null,\n            \"CountingItemsPerUnit\": 1.0,\n            \"DefaultCountingUoMEntry\": null,\n            \"Excisable\": \"tNO\",\n            \"ChapterID\": -1,\n            \"ScsCode\": null,\n            \"SpProdType\": null,\n            \"ProdStdCost\": 0.0,\n            \"InCostRollup\": \"tYES\",\n            \"VirtualAssetItem\": \"tNO\",\n            \"EnforceAssetSerialNumbers\": \"tNO\",\n            \"AttachmentEntry\": null,\n            \"LinkedResource\": null,\n            \"UpdateDate\": \"2023-08-30T00:00:00Z\",\n            \"UpdateTime\": \"12:20:53\",\n            \"GSTRelevnt\": \"tNO\",\n            \"SACEntry\": -1,\n            \"GSTTaxCategory\": \"gtc_Regular\",\n            \"ServiceCategoryEntry\": -1,\n            \"CapitalGoodsOnHoldPercent\": null,\n            \"CapitalGoodsOnHoldLimit\": null,\n            \"AssessableValue\": 0.0,\n            \"AssVal4WTR\": 0.0,\n            \"SOIExcisable\": \"se_NotExcisable\",\n            \"TNVED\": null,\n            \"ImportedItem\": \"tNO\",\n            \"PricingUnit\": -1,\n            \"CreateDate\": \"2023-08-09T00:00:00Z\",\n            \"CreateTime\": \"15:54:22\",\n            \"NVECode\": null,\n            \"CtrSealQty\": 0.0,\n            \"CESTCode\": -1,\n            \"LegalText\": null,\n            \"DataVersion\": 3,\n            \"CreateQRCodeFrom\": null,\n            \"TraceableItem\": \"tNO\",\n            \"CommodityClassification\": null,\n            \"U_IBS_MODELE\": \"12 Pro 512GB\",\n            \"U_IBS_STOCKAGE\": \"512GB\",\n            \"U_IBS_GRADE\": \"A\"\n            \n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 60,
+        "wires": [
+            [
+                "c9a7370561474535"
+            ]
+        ]
+    },
+    {
+        "id": "c9a7370561474535",
+        "type": "http request",
+        "z": "7154dcb4283cb0ca",
+        "name": "Add Item",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://172.16.0.217:50000/b1s/v1/Items",
+        "tls": "3848a164baa8e497",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "msg",
+                "keyValue": "Headers",
+                "valueType": "other",
+                "valueValue": ""
+            }
+        ],
+        "x": 1320,
+        "y": 40,
+        "wires": [
+            [
+                "28e4e915f5596386",
+                "68e539b9851c4d53"
+            ]
+        ]
+    },
+    {
+        "id": "68e539b9851c4d53",
+        "type": "switch",
+        "z": "7154dcb4283cb0ca",
+        "name": "Add Status",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "201",
+                "vt": "str"
+            },
+            {
+                "t": "neq",
+                "v": "201",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1510,
+        "y": 120,
+        "wires": [
+            [
+                "e06f2405d2a78c43"
+            ],
+            [
+                "c3d5e3da903035d5"
+            ]
+        ]
+    },
+    {
+        "id": "e06f2405d2a78c43",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "log Add success",
+        "func": "node.status({fill:\"green\",shape:\"ring\",text:\"Item Added\"});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1720,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3d5e3da903035d5",
+        "type": "function",
+        "z": "7154dcb4283cb0ca",
+        "name": "log Add failed",
+        "func": "node.node.status({fill:\"red\",shape:\"ring\",text:\"Item not added\"});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1720,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c31c1569dd20e65a",
+        "type": "status",
+        "z": "3a6e9578ebda86b9",
+        "name": "",
+        "scope": [
+            "2483aeec33af1a5a"
+        ],
+        "x": 220,
+        "y": 860,
+        "wires": [
+            [
+                "98061a9b6ccebd39",
+                "53e54b75db2905df",
+                "26e204df1d74d154",
+                "cfc5d5df37b7bac0",
+                "e850236213c83c93"
+            ]
+        ]
+    },
+    {
+        "id": "33554d0bfa6935c4",
+        "type": "debug",
+        "z": "3a6e9578ebda86b9",
+        "name": "debug 76",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "d5c17e45a7915949",
+        "type": "template",
+        "z": "3a6e9578ebda86b9",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<table>\n    <tr><th>time</th><th>Fill</th><th>Shape</th><th>Text</th><th>Source</th><th>Node Type</th></tr>\n    {{#payload}}\n        <tr class=\"\">\n            <td>{{time}}</td>\n            <td>{{fill}}</td>\n            <td>{{shape}}</td>\n            <td>{{text}}</td>\n            <td>{{source}}</td>\n            <td>{{type}}</td>\n        </tr>\n    {{/payload}}\n</table>",
+        "output": "str",
+        "x": 740,
+        "y": 760,
+        "wires": [
+            [
+                "4e8d58fb95b3bfb8"
+            ]
+        ]
+    },
+    {
+        "id": "4e8d58fb95b3bfb8",
+        "type": "ui_template",
+        "z": "3a6e9578ebda86b9",
+        "group": "0bbfe8d835f43144",
+        "name": "",
+        "order": 0,
+        "width": "24",
+        "height": "10",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1080,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "98061a9b6ccebd39",
+        "type": "function",
+        "z": "3a6e9578ebda86b9",
+        "name": "Status in table",
+        "func": "const collectionsize = 100; // define the number of error to be collected. Once limit is reached, older error is deleted.\n\nlet status = flow.get(\"status_all\");\nif (status===undefined) {\n    status = [];\n}\ndebugger;\nlet now = new Date();\n\nif (status.length >= collectionsize) {\n    status.shift();\n}\n\nstatus.push({ \"timestamp\": now.getTime(), \"fill\": msg.status.fill, \"shape\": msg.status.shape, \"text\": msg.status.text, \"source\": msg.status.source.name, \"type\": msg.status.source.type, \"time\": now.toLocaleString() });\n\nflow.set(\"status_all\", status);\n\nmsg.payload = status;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 740,
+        "wires": [
+            [
+                "d5c17e45a7915949"
+            ]
+        ]
+    },
+    {
+        "id": "04757c95f656ad53",
+        "type": "ui_chart",
+        "z": "3a6e9578ebda86b9",
+        "d": true,
+        "name": "",
+        "group": "8be0a783c25b7c66",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Bar chart",
+        "chartType": "bar",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "no data here",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "10",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#6f4a2a",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1080,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "53e54b75db2905df",
+        "type": "function",
+        "z": "3a6e9578ebda86b9",
+        "name": "Status in chart",
+        "func": "//let status = flow.get(\"status_allc\");\n\n   var status = [];\n\ndebugger;\nlet now = new Date();\n //var nbfailed = flow.get(\"nbconnectionfailed\");;\nvar nbfailed = flow.get(\"nbconnectionfailed\");\n const dataSet = {\n     \"count\":  nbfailed, \n     \"status\": \"Failed\"\n    }\n status.push(dataSet);\n var nbsucc = flow.get(\"nbconnectionok\");\n  const dataSet2 = {\n     \"count\":  nbsucc, \n     \"status\": \"Success\"\n    }\n     status.push(dataSet2);\nflow.set(\"status_allc\", status);\n\n\n\nmsg.payload = status;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 860,
+        "wires": [
+            [
+                "33554d0bfa6935c4",
+                "1dac0da7a1e7119a"
+            ]
+        ]
+    },
+    {
+        "id": "aff9215d6d3eb2c8",
+        "type": "change",
+        "z": "3a6e9578ebda86b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload.status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.count",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 840,
+        "wires": [
+            [
+                "04757c95f656ad53"
+            ]
+        ]
+    },
+    {
+        "id": "1dac0da7a1e7119a",
+        "type": "split",
+        "z": "3a6e9578ebda86b9",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 670,
+        "y": 840,
+        "wires": [
+            [
+                "aff9215d6d3eb2c8"
+            ]
+        ]
+    },
+    {
+        "id": "706fd240e31b65ea",
+        "type": "comment",
+        "z": "3a6e9578ebda86b9",
+        "name": "Bloc for logging",
+        "info": "",
+        "x": 140,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "26e204df1d74d154",
+        "type": "function",
+        "z": "3a6e9578ebda86b9",
+        "name": "Success",
+        "func": "msg.payload = flow.get(\"nbconnectionok\");\nmsg.topic = \"Success\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 980,
+        "wires": [
+            [
+                "5da5a3a3984ab109"
+            ]
+        ]
+    },
+    {
+        "id": "5da5a3a3984ab109",
+        "type": "ui_chart",
+        "z": "3a6e9578ebda86b9",
+        "d": true,
+        "name": "",
+        "group": "8be0a783c25b7c66",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "Pie chart",
+        "chartType": "pie",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cfc5d5df37b7bac0",
+        "type": "function",
+        "z": "3a6e9578ebda86b9",
+        "name": "Failed",
+        "func": "msg.payload = flow.get(\"nbconnectionfailed\");\nmsg.topic = \"Failed\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1040,
+        "wires": [
+            [
+                "5da5a3a3984ab109"
+            ]
+        ]
+    },
+    {
+        "id": "bcb52ee5ea8bbf7d",
+        "type": "http in",
+        "z": "3a6e9578ebda86b9",
+        "name": "",
+        "url": "/MassiveCreate",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "24684e7475dc1c20"
+            ]
+        ]
+    },
+    {
+        "id": "f31511a05b34d336",
+        "type": "loop",
+        "z": "3a6e9578ebda86b9",
+        "name": "Loop on companies",
+        "kind": "enum",
+        "count": "2",
+        "initial": "0",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload.CompanyDB",
+        "enumerationType": "msg",
+        "limit": "",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-last",
+        "x": 730,
+        "y": 220,
+        "wires": [
+            [
+                "1fb74f8377db2e01",
+                "c26fcc5c3328338d",
+                "fd65da5fe3f1b898"
+            ],
+            [
+                "2483aeec33af1a5a"
+            ]
+        ]
+    },
+    {
+        "id": "1fb74f8377db2e01",
+        "type": "debug",
+        "z": "3a6e9578ebda86b9",
+        "name": "debug 83",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c26fcc5c3328338d",
+        "type": "http response",
+        "z": "3a6e9578ebda86b9",
+        "name": "Success flow",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1150,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2483aeec33af1a5a",
+        "type": "subflow:ec0c400be41e570d",
+        "z": "3a6e9578ebda86b9",
+        "name": "",
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "f31511a05b34d336"
+            ]
+        ]
+    },
+    {
+        "id": "24684e7475dc1c20",
+        "type": "function",
+        "z": "3a6e9578ebda86b9",
+        "name": "function 9",
+        "func": "msg.item = msg.payload.Item;\nlet now = new Date();\n\nmsg.recap = [ ];\n/*{\n    \"Company\": \"Test\",\n        \"status\": 20,\n            \"timestamp\": now.getTime()\n},\n{\n    \"Company\": \"Test2\",\n        \"status\": 70,\n            \"timestamp\": now.getTime() + 2\n}\n]*/\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 100,
+        "wires": [
+            [
+                "f31511a05b34d336"
+            ]
+        ]
+    },
+    {
+        "id": "e850236213c83c93",
+        "type": "debug",
+        "z": "3a6e9578ebda86b9",
+        "name": "debug 84",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 240,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "8eb0eaf76c60f631",
+        "type": "ui_table",
+        "z": "3a6e9578ebda86b9",
+        "group": "8be0a783c25b7c66",
+        "name": "Nodes Staus",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "columns": [
+            {
+                "field": "rowNulber",
+                "title": "Row Number 1",
+                "width": "",
+                "align": "left",
+                "formatter": "rownum",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Company",
+                "title": "Company",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "action",
+                "title": "Action",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "status",
+                "title": "Status",
+                "width": "",
+                "align": "center",
+                "formatter": "traffic",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "timestamp",
+                "title": "Time",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1290,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fd65da5fe3f1b898",
+        "type": "function",
+        "z": "3a6e9578ebda86b9",
+        "name": "function 10",
+        "func": "msg.payload = msg.recap;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 360,
+        "wires": [
+            [
+                "8eb0eaf76c60f631"
+            ]
+        ]
+    },
+    {
+        "id": "df6265d2baa0f083",
+        "type": "inject",
+        "z": "68140d5bd2308e46",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"name\":\"MEQ0451495\",\"room\":\"Bathroom\",\"SET_TEMPERATURE-value\":22,\"ACTUAL_TEMPERATURE-value\":21.8,\"VALVE_STATE-value\":90,\"BATTERY_STATE-value\":2.7,\"BOOST_STATE-value\":0,\"AUTO_MODE-value\":true,\"CONTROL_MODE-value\":0},{\"name\":\"MEQ1875547\",\"room\":\"Living Room\",\"SET_TEMPERATURE-value\":12,\"ACTUAL_TEMPERATURE-value\":16.2,\"VALVE_STATE-value\":0,\"BATTERY_STATE-value\":2.7,\"BOOST_STATE-value\":0,\"AUTO_MODE-value\":false,\"CONTROL_MODE-value\":1},{\"name\":\"MEQ1875538\",\"room\":\"Living Room\",\"SET_TEMPERATURE-value\":18,\"ACTUAL_TEMPERATURE-value\":19.5,\"VALVE_STATE-value\":0,\"BATTERY_STATE-value\":2.6,\"BOOST_STATE-value\":0,\"AUTO_MODE-value\":false,\"CONTROL_MODE-value\":2},{\"name\":\"MEQ0447462\",\"room\":\"Kitchen\",\"SET_TEMPERATURE-value\":17,\"ACTUAL_TEMPERATURE-value\":22.2,\"VALVE_STATE-value\":0,\"BATTERY_STATE-value\":2.7,\"BOOST_STATE-value\":10,\"AUTO_MODE-value\":false,\"CONTROL_MODE-value\":3},{\"name\":\"MEQ1875551\",\"room\":\"Office\",\"SET_TEMPERATURE-value\":18,\"ACTUAL_TEMPERATURE-value\":20.2,\"VALVE_STATE-value\":0,\"BATTERY_STATE-value\":2.7,\"BOOST_STATE-value\":0,\"AUTO_MODE-value\":false,\"CONTROL_MODE-value\":0},{\"name\":\"MEQ0447425\",\"room\":\"Dining Room\",\"SET_TEMPERATURE-value\":19,\"ACTUAL_TEMPERATURE-value\":20.4,\"VALVE_STATE-value\":0,\"BATTERY_STATE-value\":2.7,\"BOOST_STATE-value\":0,\"AUTO_MODE-value\":false,\"CONTROL_MODE-value\":0},{\"name\":\"MEQ1875546\",\"room\":\"Dining Room\",\"SET_TEMPERATURE-value\":20,\"ACTUAL_TEMPERATURE-value\":18.8,\"VALVE_STATE-value\":99,\"BATTERY_STATE-value\":2.7,\"BOOST_STATE-value\":0,\"AUTO_MODE-value\":false,\"CONTROL_MODE-value\":0},{\"name\":\"MEQ0447483\",\"room\":\"Bedroom\",\"SET_TEMPERATURE-value\":17,\"ACTUAL_TEMPERATURE-value\":22.4,\"VALVE_STATE-value\":0,\"BATTERY_STATE-value\":2.7,\"BOOST_STATE-value\":0,\"AUTO_MODE-value\":false,\"CONTROL_MODE-value\":0},{\"name\":\"MEQ1875541\",\"room\":\"Child\",\"SET_TEMPERATURE-value\":18,\"ACTUAL_TEMPERATURE-value\":20.4,\"VALVE_STATE-value\":0,\"BATTERY_STATE-value\":2.7,\"BOOST_STATE-value\":0,\"AUTO_MODE-value\":false,\"CONTROL_MODE-value\":0},{\"name\":\"MEQ1875552\",\"room\":\"Guest Room\",\"SET_TEMPERATURE-value\":20,\"ACTUAL_TEMPERATURE-value\":21.1,\"VALVE_STATE-value\":9,\"BATTERY_STATE-value\":2.8,\"BOOST_STATE-value\":0,\"AUTO_MODE-value\":false,\"CONTROL_MODE-value\":0}]",
+        "payloadType": "json",
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "8eb4461724b18a39"
+            ]
+        ]
+    },
+    {
+        "id": "8eb4461724b18a39",
+        "type": "change",
+        "z": "68140d5bd2308e46",
+        "name": "ui_control",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ui_control",
+                "pt": "msg",
+                "to": "{\"tabulator\":{\"columnResized\":\"function(column){     var newColumn = {         field: column._column.field,         visible: column._column.visible,         width: column._column.width,         widthFixed: column._column.widthFixed,         widthStyled: column._column.widthStyled     }; this.send({topic:this.config.topic,ui_control:{callback:'columnResized',columnWidths:newColumn}}); }\",\"columnMoved\":\"function(column, columns){     var newColumns=[];     columns.forEach(function (column) {         newColumns.push({'field': column._column.field});     });     this.send({topic:this.config.topic,ui_control:{callback:'columnMoved',columns:newColumns}}); }\",\"groupHeader\":\"function (value, count, data, group) {return value + \\\"<span style='color:#d00; margin-left:10px;'>(\\\" + count + \\\" Termostat\\\"+((count>1) ? \\\"e\\\" : \\\"\\\") + \\\")</span>\\\";}\",\"columns\":[{\"formatterParams\":{\"target\":\"_blank\"},\"title\":\"ROom\",\"field\":\"room\",\"width\":100,\"frozen\":true},{\"formatterParams\":{\"target\":\"_blank\"},\"title\":\"Device\",\"field\":\"name\",\"width\":100,\"align\":\"center\"},{\"formatterParams\":{\"target\":\"_blank\"},\"title\":\"Type\",\"field\":\"deviceType\",\"width\":100,\"align\":\"center\"},{\"formatterParams\":{\"target\":\"_blank\"},\"title\":\"Measurements\",\"columns\":[{\"formatterParams\":{\"target\":\"_blank\"},\"title\":\"target\",\"field\":\"SET_TEMPERATURE-value\",\"formatter\":\"function(cell, formatterParams, onRendered){return cell.getValue()+'°C';}\",\"topCalc\":\"avg\",\"width\":100},{\"formatterParams\":{\"target\":\"_blank\",\"min\":10,\"max\":25,\"color\":[\"blue\",\"green\",\"red\"],\"legend\":\"function (value) {return '&nbsp;&nbsp;'+value+'°C';}\",\"legendColor\":\"#101010\",\"legendAlign\":\"left\"},\"title\":\"current\",\"field\":\"ACTUAL_TEMPERATURE-value\",\"formatter\":\"progress\",\"topCalc\":\"avg\",\"width\":100},{\"formatterParams\":{\"target\":\"_blank\",\"min\":0,\"max\":99,\"color\":[\"gray\",\"orange\",\"red\"],\"legend\":\"function (value) {return (value>0)? '&nbsp;&nbsp;'+value+' %' : '-';}\",\"legendColor\":\"#101010\",\"legendAlign\":\"center\"},\"title\":\"Valve\",\"field\":\"VALVE_STATE-value\",\"formatter\":\"progress\",\"topCalc\":\"max\",\"width\":100},{\"formatterParams\":{\"target\":\"_blank\",\"min\":1.5,\"max\":4.6,\"color\":[\"red\",\"orange\",\"green\"],\"legend\":\"function (value) {return value+' V';}\",\"legendColor\":\"#101010\",\"legendAlign\":\"center\"},\"title\":\"Batt\",\"field\":\"BATTERY_STATE-value\",\"formatter\":\"progress\",\"topCalc\":\"min\",\"width\":100}]},{\"formatterParams\":{\"target\":\"_blank\"},\"title\":\"Settings\",\"columns\":[{\"formatterParams\":{\"target\":\"_blank\",\"min\":0,\"max\":30,\"color\":[\"red\",\"orange\",\"green\"],\"legend\":\"function (value) {     if (value>0)         return \\\"<span style='color:#101010;'>\\\"+value+\\\" min</span>\\\";     else         return \\\"<span style='color:#A0A0A0;'>aus</span>\\\"; }\",\"legendColor\":\"#101010\",\"legendAlign\":\"center\"},\"title\":\"Boost\",\"field\":\"BOOST_STATE-value\",\"formatter\":\"progress\",\"width\":100},{\"formatterParams\":{\"target\":\"_blank\",\"allowEmpty\":true,\"allowTruthy\":true,\"tickElement\":\"<i class='fa fa-clock-o'></i>\",\"crossElement\":\"<i class='fa fa-ban'></i>\"},\"title\":\"Auto\",\"field\":\"AUTO_MODE-value\",\"formatter\":\"tickCross\",\"width\":100,\"align\":\"center\"},{\"formatterParams\":{\"target\":\"_blank\"},\"title\":\"Mode\",\"field\":\"CONTROL_MODE-value\",\"formatter\":\"function(cell, formatterParams, onRendered){     var html=\\\"<i class=\\\\\\\"\\\";     switch(cell.getValue()) {         case 0: html+=\\\"fa fa-calendar-check-o\\\"; break;         case 1: html+=\\\"fa fa-hand-o-up\\\"; break;         case 2: html+=\\\"fa fa-suitcase\\\"; break;         case 3: html+=\\\"fa fa-spinner fa-spin fa-fw\\\"; break;     }     html+='\\\\\\\"></i>';     return html; }\",\"width\":100,\"align\":\"center\"},{\"formatterParams\":{\"target\":\"_blank\"},\"title\":\"Auto\",\"field\":\"AUTO_MODE-value\",\"formatter\":\"tick\",\"width\":100,\"align\":\"center\"}]}],\"layout\":\"fitColumns\",\"movableColumns\":true,\"groupBy\":\"\"},\"customHeight\":12}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 576,
+        "y": 300,
+        "wires": [
+            [
+                "8a62c44dadfce4c4"
+            ]
+        ]
+    },
+    {
+        "id": "66085c21ed478d24",
+        "type": "debug",
+        "z": "68140d5bd2308e46",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 889,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8a62c44dadfce4c4",
+        "type": "ui_table",
+        "z": "68140d5bd2308e46",
+        "group": "51ce6aa1.620754",
+        "name": "Thermostats",
+        "order": 1,
+        "width": "20",
+        "height": "7",
+        "columns": [],
+        "outputs": 1,
+        "cts": true,
+        "x": 739,
+        "y": 300,
+        "wires": [
+            [
+                "66085c21ed478d24"
+            ]
+        ]
+    },
+    {
+        "id": "922fcb69a17cbe4e",
+        "type": "inject",
+        "z": "68140d5bd2308e46",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"Name\":\"<b>Yokoi</b>\",\"Age\":\"30\",\"Color\":\"lime\",\"Prog\":70,\"Star\":\"3\"},{\"Name\":\"<i>DCJ</i>\",\"Age\":\"50\",\"Color\":\"dodgerblue\",\"Prog\":\"45\",\"Star\":2,\"Pass\":false,\"web\":\"\"},{\"Name\":\"Nick\",\"Age\":\"40\",\"Color\":\"darkred\",\"Prog\":95,\"Star\":\"5\",\"Pass\":true,\"web\":\"http://nodered.org\"},{\"Name\":\"Oli\"}]",
+        "payloadType": "json",
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "e52241fcceef5626"
+            ]
+        ]
+    },
+    {
+        "id": "1a900aec3601c5eb",
+        "type": "inject",
+        "z": "68140d5bd2308e46",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[{\"Name\":\"<b>Yokoi</b>\",\"Age\":\"30\",\"Color\":\"lime\",\"Prog\":20,\"Star\":\"1\"},{\"Name\":\"<i>DCJ</i>\",\"Age\":\"50\",\"Color\":\"dodgerblue\",\"Prog\":\"80\",\"Star\":4,\"Pass\":true,\"web\":\"\"},{\"Name\":\"Nick\",\"Age\":\"40\",\"Color\":\"red\",\"Prog\":90,\"Star\":\"5\",\"Pass\":true,\"web\":\"http://nodered.org\"},{\"Name\":\"Oli\"}]",
+        "payloadType": "json",
+        "x": 450,
+        "y": 160,
+        "wires": [
+            [
+                "e52241fcceef5626",
+                "d4f00e3679b14b2c"
+            ]
+        ]
+    },
+    {
+        "id": "e52241fcceef5626",
+        "type": "ui_table",
+        "z": "68140d5bd2308e46",
+        "group": "571a38b1.5e3638",
+        "name": "People",
+        "order": 1,
+        "width": "8",
+        "height": "3",
+        "columns": [
+            {
+                "field": "Name",
+                "title": "Who",
+                "width": "",
+                "align": "left",
+                "formatter": "html",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Age",
+                "title": "Age",
+                "width": "40",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Color",
+                "title": "",
+                "width": "5%",
+                "align": "left",
+                "formatter": "color",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Star",
+                "title": "%",
+                "width": "100",
+                "align": "left",
+                "formatter": "star",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Pass",
+                "title": "",
+                "width": "5%",
+                "align": "center",
+                "formatter": "tickCross",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Prog",
+                "title": "",
+                "width": "80",
+                "align": "left",
+                "formatter": "progress",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "web",
+                "title": "URL",
+                "width": "",
+                "align": "left",
+                "formatter": "link",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 660,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "d4f00e3679b14b2c",
+        "type": "ui-table",
+        "z": "68140d5bd2308e46",
+        "group": "ed7a05e849dcf4e5",
+        "name": "",
+        "label": "text",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": true,
+        "showSearch": true,
+        "selectionType": "none",
+        "columns": [],
+        "x": 1030,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b0ed1ea9af651209",
+        "type": "status",
+        "z": "2441dacc324a3050",
+        "name": "",
+        "scope": [
+            "a096ec47b1a2e90a"
+        ],
+        "x": 220,
+        "y": 860,
+        "wires": [
+            [
+                "2e6113d54ae397d5",
+                "a38949d237dae378",
+                "6921c00ae83b0392",
+                "c278ca06fe0347ae",
+                "338edb453a567b9e"
+            ]
+        ]
+    },
+    {
+        "id": "4a53567d7349ae28",
+        "type": "debug",
+        "z": "2441dacc324a3050",
+        "name": "debug 76",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "db2ede88b24281c8",
+        "type": "template",
+        "z": "2441dacc324a3050",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<table>\n    <tr><th>time</th><th>Fill</th><th>Shape</th><th>Text</th><th>Source</th><th>Node Type</th></tr>\n    {{#payload}}\n        <tr class=\"\">\n            <td>{{time}}</td>\n            <td>{{fill}}</td>\n            <td>{{shape}}</td>\n            <td>{{text}}</td>\n            <td>{{source}}</td>\n            <td>{{type}}</td>\n        </tr>\n    {{/payload}}\n</table>",
+        "output": "str",
+        "x": 740,
+        "y": 760,
+        "wires": [
+            [
+                "36e2c08893b287c2"
+            ]
+        ]
+    },
+    {
+        "id": "36e2c08893b287c2",
+        "type": "ui_template",
+        "z": "2441dacc324a3050",
+        "group": "0bbfe8d835f43144",
+        "name": "",
+        "order": 0,
+        "width": "24",
+        "height": "10",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1080,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e6113d54ae397d5",
+        "type": "function",
+        "z": "2441dacc324a3050",
+        "name": "Status in table",
+        "func": "const collectionsize = 100; // define the number of error to be collected. Once limit is reached, older error is deleted.\n\nlet status = flow.get(\"status_all\");\nif (status===undefined) {\n    status = [];\n}\ndebugger;\nlet now = new Date();\n\nif (status.length >= collectionsize) {\n    status.shift();\n}\n\nstatus.push({ \"timestamp\": now.getTime(), \"fill\": msg.status.fill, \"shape\": msg.status.shape, \"text\": msg.status.text, \"source\": msg.status.source.name, \"type\": msg.status.source.type, \"time\": now.toLocaleString() });\n\nflow.set(\"status_all\", status);\n\nmsg.payload = status;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 740,
+        "wires": [
+            [
+                "db2ede88b24281c8"
+            ]
+        ]
+    },
+    {
+        "id": "3bec3355d9dfb476",
+        "type": "ui_chart",
+        "z": "2441dacc324a3050",
+        "d": true,
+        "name": "",
+        "group": "8be0a783c25b7c66",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Bar chart",
+        "chartType": "bar",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "no data here",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "10",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#6f4a2a",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1080,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a38949d237dae378",
+        "type": "function",
+        "z": "2441dacc324a3050",
+        "name": "Status in chart",
+        "func": "//let status = flow.get(\"status_allc\");\n\n   var status = [];\n\ndebugger;\nlet now = new Date();\n //var nbfailed = flow.get(\"nbconnectionfailed\");;\nvar nbfailed = flow.get(\"nbconnectionfailed\");\n const dataSet = {\n     \"count\":  nbfailed, \n     \"status\": \"Failed\"\n    }\n status.push(dataSet);\n var nbsucc = flow.get(\"nbconnectionok\");\n  const dataSet2 = {\n     \"count\":  nbsucc, \n     \"status\": \"Success\"\n    }\n     status.push(dataSet2);\nflow.set(\"status_allc\", status);\n\n\n\nmsg.payload = status;\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 860,
+        "wires": [
+            [
+                "4a53567d7349ae28",
+                "424fac6d92ae173b"
+            ]
+        ]
+    },
+    {
+        "id": "e0d50b92e62ddd74",
+        "type": "change",
+        "z": "2441dacc324a3050",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "payload.status",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.count",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 840,
+        "wires": [
+            [
+                "3bec3355d9dfb476"
+            ]
+        ]
+    },
+    {
+        "id": "424fac6d92ae173b",
+        "type": "split",
+        "z": "2441dacc324a3050",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 670,
+        "y": 840,
+        "wires": [
+            [
+                "e0d50b92e62ddd74"
+            ]
+        ]
+    },
+    {
+        "id": "32459341be232e77",
+        "type": "comment",
+        "z": "2441dacc324a3050",
+        "name": "Bloc for logging",
+        "info": "",
+        "x": 140,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "6921c00ae83b0392",
+        "type": "function",
+        "z": "2441dacc324a3050",
+        "name": "Success",
+        "func": "msg.payload = flow.get(\"nbconnectionok\");\nmsg.topic = \"Success\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 980,
+        "wires": [
+            [
+                "962320e540ed4f8d"
+            ]
+        ]
+    },
+    {
+        "id": "962320e540ed4f8d",
+        "type": "ui_chart",
+        "z": "2441dacc324a3050",
+        "d": true,
+        "name": "",
+        "group": "8be0a783c25b7c66",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "label": "Pie chart",
+        "chartType": "pie",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 720,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c278ca06fe0347ae",
+        "type": "function",
+        "z": "2441dacc324a3050",
+        "name": "Failed",
+        "func": "msg.payload = flow.get(\"nbconnectionfailed\");\nmsg.topic = \"Failed\"\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1040,
+        "wires": [
+            [
+                "962320e540ed4f8d"
+            ]
+        ]
+    },
+    {
+        "id": "b78927a0c83568c0",
+        "type": "http in",
+        "z": "2441dacc324a3050",
+        "name": "",
+        "url": "/MassiveCreate",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "d39bdbaddf706008"
+            ]
+        ]
+    },
+    {
+        "id": "11e8b4a22ab23823",
+        "type": "loop",
+        "z": "2441dacc324a3050",
+        "name": "Loop on companies",
+        "kind": "enum",
+        "count": "2",
+        "initial": "0",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload.CompanyDB",
+        "enumerationType": "msg",
+        "limit": "",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-last",
+        "x": 730,
+        "y": 220,
+        "wires": [
+            [
+                "40fca20650bfdaa0",
+                "b188dd8557d7d370",
+                "ec73f1433e4a3769"
+            ],
+            [
+                "a096ec47b1a2e90a"
+            ]
+        ]
+    },
+    {
+        "id": "40fca20650bfdaa0",
+        "type": "debug",
+        "z": "2441dacc324a3050",
+        "name": "debug 83",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a3177dda0a5a510d",
+        "type": "http response",
+        "z": "2441dacc324a3050",
+        "name": "Success flow",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1310,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a096ec47b1a2e90a",
+        "type": "subflow:1f74893e02e53abc",
+        "z": "2441dacc324a3050",
+        "name": "",
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "11e8b4a22ab23823"
+            ]
+        ]
+    },
+    {
+        "id": "d39bdbaddf706008",
+        "type": "function",
+        "z": "2441dacc324a3050",
+        "name": "function 9",
+        "func": "msg.item = msg.payload.Item;\nlet now = new Date();\nmsg.nberrors = 0;\nmsg.nbcreated = 0;\nmsg.recap = [ ];\n/*{\n    \"Company\": \"Test\",\n        \"status\": 20,\n            \"timestamp\": now.getTime()\n},\n{\n    \"Company\": \"Test2\",\n        \"status\": 70,\n            \"timestamp\": now.getTime() + 2\n}\n]*/\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 100,
+        "wires": [
+            [
+                "11e8b4a22ab23823"
+            ]
+        ]
+    },
+    {
+        "id": "338edb453a567b9e",
+        "type": "debug",
+        "z": "2441dacc324a3050",
+        "name": "debug 84",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 240,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "b864d9fb716c2038",
+        "type": "ui_table",
+        "z": "2441dacc324a3050",
+        "group": "8be0a783c25b7c66",
+        "name": "Nodes Staus",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "columns": [
+            {
+                "field": "rowNulber",
+                "title": "Row Number 1",
+                "width": "",
+                "align": "left",
+                "formatter": "rownum",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "Company",
+                "title": "Company",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "action",
+                "title": "Action",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "status",
+                "title": "Status",
+                "width": "",
+                "align": "center",
+                "formatter": "traffic",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "timestamp",
+                "title": "Time",
+                "width": "",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 1290,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b188dd8557d7d370",
+        "type": "function",
+        "z": "2441dacc324a3050",
+        "name": "function 10",
+        "func": "msg.payload = msg.recap;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 360,
+        "wires": [
+            [
+                "b864d9fb716c2038"
+            ]
+        ]
+    },
+    {
+        "id": "ec73f1433e4a3769",
+        "type": "function",
+        "z": "2441dacc324a3050",
+        "name": "function 12",
+        "func": "msg.payload = {\n    \"NbCreatedItems\": msg.nbcreated\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 260,
+        "wires": [
+            [
+                "a3177dda0a5a510d"
+            ]
+        ]
     }
 ]
